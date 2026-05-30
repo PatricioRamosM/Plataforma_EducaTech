@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EducaTech – Plataforma Educativa Digital</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts: Sora (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ============================================================
+       VISTA 1: PÁGINA DE INICIO
+  ============================================================ -->
+  <section id="vista-inicio" class="vista activa">
+
+    <!-- Cabecera / Navbar -->
+    <header class="navbar">
+      <div class="navbar__logo">
+        <span class="logo-icon">📘</span>
+        <span class="logo-texto">Educa<strong>Tech</strong></span>
+      </div>
+      <nav class="navbar__links">
+        <a href="#" onclick="mostrarVista('vista-inicio')">Inicio</a>
+        <a href="#" onclick="mostrarSeccion('repositorio')">Repositorio</a>
+        <a href="#" onclick="mostrarSeccion('consultas')">Consultas</a>
+      </nav>
+    </header>
+
+    <!-- Hero principal -->
+    <div class="hero">
+      <div class="hero__contenido">
+        <div class="hero__badge">🇵🇪 Plataforma para instituciones públicas del Perú</div>
+        <h1 class="hero__titulo">
+          Educación digital<br />
+          <span class="hero__titulo--acento">al alcance de todos</span>
+        </h1>
+        <p class="hero__desc">
+          EducaTech integra recursos digitales, materiales educativos y
+          herramientas de comunicación para docentes y estudiantes de
+          instituciones educativas públicas.
+        </p>
+        <div class="hero__botones">
+          <button class="btn btn--primario" onclick="mostrarLogin('docente')">
+            👨‍🏫 Soy Docente
+          </button>
+          <button class="btn btn--secundario" onclick="mostrarLogin('estudiante')">
+            🎒 Soy Estudiante
+          </button>
+        </div>
+      </div>
+      <div class="hero__imagen">
+        <div class="hero__card-flotante card-flotante--1">
+          <span>📚</span> Materiales disponibles
+        </div>
+        <div class="hero__ilustracion">
+          <div class="ilustracion__circulo c1"></div>
+          <div class="ilustracion__circulo c2"></div>
+          <div class="ilustracion__circulo c3"></div>
+          <div class="ilustracion__icono">🎓</div>
+        </div>
+        <div class="hero__card-flotante card-flotante--2">
+          <span>✏️</span> Interacción docente-alumno
+        </div>
+      </div>
+    </div>
+
+    <!-- Características -->
+    <div class="caracteristicas">
+      <h2 class="seccion__titulo">¿Qué ofrece EducaTech?</h2>
+      <div class="caracteristicas__grid">
+        <div class="caracteristica__card">
+          <div class="caracteristica__icono">📂</div>
+          <h3>Repositorio Digital</h3>
+          <p>Accede a guías, presentaciones, videos y lecturas organizadas por curso.</p>
+        </div>
+        <div class="caracteristica__card">
+          <div class="caracteristica__icono">🤝</div>
+          <h3>Interacción Docente-Alumno</h3>
+          <p>Envía consultas académicas y recibe respuestas de tus docentes.</p>
+        </div>
+        <div class="caracteristica__card">
+          <div class="caracteristica__icono">📱</div>
+          <h3>Diseño Responsive</h3>
+          <p>Funciona en computadoras, tablets y celulares sin instalar nada.</p>
+        </div>
+        <div class="caracteristica__card">
+          <div class="caracteristica__icono">🔍</div>
+          <h3>Filtro por Curso</h3>
+          <p>Encuentra rápidamente los materiales del curso que necesitas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección Repositorio (ancla interna) -->
+    <div id="repositorio" class="repositorio-publica">
+      <h2 class="seccion__titulo">Repositorio de Contenidos</h2>
+      <p class="seccion__subtitulo">Materiales educativos disponibles para todos</p>
+      <div class="repositorio__filtros">
+        <button class="filtro-btn activo" onclick="filtrarRepositorio('todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarRepositorio('Matemática', this)">Matemática</button>
+        <button class="filtro-btn" onclick="filtrarRepositorio('Comunicación', this)">Comunicación</button>
+        <button class="filtro-btn" onclick="filtrarRepositorio('Ciencias', this)">Ciencias</button>
+        <button class="filtro-btn" onclick="filtrarRepositorio('Historia', this)">Historia</button>
+      </div>
+      <div id="lista-repositorio-publico" class="materiales__grid"></div>
+    </div>
+
+    <!-- Sección Consultas públicas -->
+    <div id="consultas" class="consultas-publica">
+      <h2 class="seccion__titulo">Preguntas Frecuentes</h2>
+      <div class="faq__lista">
+        <div class="faq__item">
+          <button class="faq__pregunta" onclick="toggleFaq(this)">
+            ¿Cómo accedo como estudiante?
+            <span class="faq__icono">▼</span>
+          </button>
+          <div class="faq__respuesta">
+            Haz clic en "Soy Estudiante" en la página de inicio, ingresa tus datos
+            y accede al panel donde encontrarás todos los materiales organizados por curso.
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pregunta" onclick="toggleFaq(this)">
+            ¿Cómo sube materiales un docente?
+            <span class="faq__icono">▼</span>
+          </button>
+          <div class="faq__respuesta">
+            El docente accede a su panel y completa el formulario con título, curso,
+            descripción y tipo de recurso. Al confirmar, el material queda disponible
+            para los estudiantes.
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pregunta" onclick="toggleFaq(this)">
+            ¿Puedo usar la plataforma desde el celular?
+            <span class="faq__icono">▼</span>
+          </button>
+          <div class="faq__respuesta">
+            Sí, EducaTech tiene diseño responsive y funciona correctamente
+            en cualquier dispositivo con un navegador web.
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pregunta" onclick="toggleFaq(this)">
+            ¿Necesito internet para usarla?
+            <span class="faq__icono">▼</span>
+          </button>
+          <div class="faq__respuesta">
+            En esta primera versión, sí es necesario abrir el archivo localmente
+            o desde un servidor. Futuras versiones incluirán modo offline.
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de consulta -->
+      <div class="consulta__form-wrapper">
+        <h3>Enviar una consulta</h3>
+        <div class="consulta__form">
+          <input type="text" id="consulta-nombre" placeholder="Tu nombre" class="form-input" />
+          <input type="text" id="consulta-curso" placeholder="Curso relacionado" class="form-input" />
+          <textarea id="consulta-mensaje" placeholder="Escribe tu consulta aquí..." class="form-input" rows="3"></textarea>
+          <button class="btn btn--primario" onclick="enviarConsulta()">Enviar consulta</button>
+        </div>
+        <div id="lista-consultas" class="consultas__lista"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__contenido">
+        <div class="footer__logo">📘 EducaTech</div>
+        <p>Plataforma educativa digital para instituciones públicas del Perú</p>
+        <p class="footer__copy">© 2024 EducaTech – Proyecto académico universitario</p>
+      </div>
+    </footer>
+  </section>
+
+
+  <!-- ============================================================
+       VISTA 2: LOGIN
+  ============================================================ -->
+  <section id="vista-login" class="vista">
+    <div class="login__contenedor">
+      <button class="btn-volver" onclick="mostrarVista('vista-inicio')">← Volver al inicio</button>
+      <div class="login__card">
+        <div class="login__icono" id="login-icono">👨‍🏫</div>
+        <h2 id="login-titulo">Acceso Docente</h2>
+        <p id="login-desc" class="login__desc">Ingresa tus datos para continuar</p>
+        <div class="login__form">
+          <input type="text" id="login-nombre" placeholder="Nombre completo" class="form-input" />
+          <input type="text" id="login-institucion" placeholder="Institución educativa" class="form-input" />
+          <select id="login-grado" class="form-input">
+            <option value="">Selecciona grado / nivel</option>
+            <option>1° Secundaria</option>
+            <option>2° Secundaria</option>
+            <option>3° Secundaria</option>
+            <option>4° Secundaria</option>
+            <option>5° Secundaria</option>
+            <option>Docente – Primaria</option>
+            <option>Docente – Secundaria</option>
+          </select>
+          <button class="btn btn--primario btn--full" id="btn-ingresar" onclick="ingresar()">
+            Ingresar a la plataforma
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       VISTA 3: PANEL DOCENTE
+  ============================================================ -->
+  <section id="vista-docente" class="vista">
+    <div class="panel">
+
+      <!-- Sidebar -->
+      <aside class="panel__sidebar">
+        <div class="sidebar__logo">📘 EducaTech</div>
+        <nav class="sidebar__nav">
+          <a href="#" class="sidebar__link activo" onclick="cambiarTabDocente('tab-subir', this)">
+            📤 Subir Material
+          </a>
+          <a href="#" class="sidebar__link" onclick="cambiarTabDocente('tab-mis-materiales', this)">
+            📋 Mis Materiales
+          </a>
+          <a href="#" class="sidebar__link" onclick="cambiarTabDocente('tab-consultas-doc', this)">
+            💬 Consultas
+          </a>
+        </nav>
+        <button class="btn btn--salir" onclick="mostrarVista('vista-inicio')">⬅ Salir</button>
+      </aside>
+
+      <!-- Contenido -->
+      <main class="panel__contenido">
+
+        <!-- Encabezado -->
+        <div class="panel__header">
+          <div>
+            <h2 class="panel__bienvenida">Bienvenido/a, <span id="docente-nombre">Docente</span> 👋</h2>
+            <p class="panel__subtitulo" id="docente-info">Institución educativa</p>
+          </div>
+          <div class="panel__badge">Panel Docente</div>
+        </div>
+
+        <!-- Tab: Subir material -->
+        <div id="tab-subir" class="tab-contenido activo">
+          <h3 class="tab__titulo">📤 Registrar nuevo material</h3>
+          <div class="form-material">
+            <input type="text" id="mat-titulo" placeholder="Título del material" class="form-input" />
+            <select id="mat-curso" class="form-input">
+              <option value="">Selecciona el curso</option>
+              <option>Matemática</option>
+              <option>Comunicación</option>
+              <option>Ciencias</option>
+              <option>Historia</option>
+              <option>Inglés</option>
+              <option>Educación Física</option>
+              <option>Arte</option>
+            </select>
+            <select id="mat-tipo" class="form-input">
+              <option value="">Tipo de recurso</option>
+              <option>📄 Guía de estudio</option>
+              <option>📊 Presentación</option>
+              <option>🎬 Video educativo</option>
+              <option>📖 Lectura complementaria</option>
+              <option>✏️ Actividad</option>
+            </select>
+            <textarea id="mat-desc" placeholder="Descripción del material..." class="form-input" rows="3"></textarea>
+            <input type="text" id="mat-enlace" placeholder="Enlace al recurso (URL o ruta)" class="form-input" />
+            <button class="btn btn--primario" onclick="agregarMaterial()">
+              ➕ Publicar material
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab: Mis materiales -->
+        <div id="tab-mis-materiales" class="tab-contenido">
+          <h3 class="tab__titulo">📋 Materiales publicados</h3>
+          <div id="lista-materiales-docente" class="materiales__grid"></div>
+          <p id="msg-sin-materiales" class="msg-vacio">Aún no has publicado materiales.</p>
+        </div>
+
+        <!-- Tab: Consultas del docente -->
+        <div id="tab-consultas-doc" class="tab-contenido">
+          <h3 class="tab__titulo">💬 Consultas de estudiantes</h3>
+          <div id="consultas-docente-lista" class="consultas__lista--panel"></div>
+          <p id="msg-sin-consultas" class="msg-vacio">No hay consultas por responder.</p>
+        </div>
+
+      </main>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       VISTA 4: PANEL ESTUDIANTE
+  ============================================================ -->
+  <section id="vista-estudiante" class="vista">
+    <div class="panel">
+
+      <!-- Sidebar -->
+      <aside class="panel__sidebar panel__sidebar--est">
+        <div class="sidebar__logo">📘 EducaTech</div>
+        <nav class="sidebar__nav">
+          <a href="#" class="sidebar__link activo" onclick="cambiarTabEstudiante('tab-materiales-est', this)">
+            📚 Materiales
+          </a>
+          <a href="#" class="sidebar__link" onclick="cambiarTabEstudiante('tab-consulta-est', this)">
+            ✉️ Enviar consulta
+          </a>
+        </nav>
+        <button class="btn btn--salir" onclick="mostrarVista('vista-inicio')">⬅ Salir</button>
+      </aside>
+
+      <!-- Contenido -->
+      <main class="panel__contenido">
+
+        <!-- Encabezado -->
+        <div class="panel__header panel__header--est">
+          <div>
+            <h2 class="panel__bienvenida">Bienvenido/a, <span id="estudiante-nombre">Estudiante</span> 🎒</h2>
+            <p class="panel__subtitulo" id="estudiante-info">Institución educativa</p>
+          </div>
+          <div class="panel__badge panel__badge--est">Panel Estudiante</div>
+        </div>
+
+        <!-- Tab: Materiales -->
+        <div id="tab-materiales-est" class="tab-contenido activo">
+          <h3 class="tab__titulo">📚 Materiales disponibles</h3>
+          <div class="filtros__cursos">
+            <span class="filtros__label">Filtrar por curso:</span>
+            <button class="filtro-btn activo" onclick="filtrarMateriales('todos', this)">Todos</button>
+            <button class="filtro-btn" onclick="filtrarMateriales('Matemática', this)">Matemática</button>
+            <button class="filtro-btn" onclick="filtrarMateriales('Comunicación', this)">Comunicación</button>
+            <button class="filtro-btn" onclick="filtrarMateriales('Ciencias', this)">Ciencias</button>
+            <button class="filtro-btn" onclick="filtrarMateriales('Historia', this)">Historia</button>
+            <button class="filtro-btn" onclick="filtrarMateriales('Inglés', this)">Inglés</button>
+          </div>
+          <div id="lista-materiales-estudiante" class="materiales__grid"></div>
+          <p id="msg-sin-mat-est" class="msg-vacio">No hay materiales disponibles por el momento.</p>
+        </div>
+
+        <!-- Tab: Enviar consulta -->
+        <div id="tab-consulta-est" class="tab-contenido">
+          <h3 class="tab__titulo">✉️ Enviar consulta al docente</h3>
+          <div class="form-material">
+            <input type="text" id="est-consulta-curso" placeholder="Curso relacionado" class="form-input" />
+            <textarea id="est-consulta-msg" placeholder="Escribe tu consulta aquí..." class="form-input" rows="4"></textarea>
+            <button class="btn btn--primario" onclick="enviarConsultaEstudiante()">Enviar consulta</button>
+          </div>
+          <div class="mis-consultas">
+            <h4>Mis consultas enviadas</h4>
+            <div id="lista-mis-consultas" class="consultas__lista--panel"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </section>
+
+  <!-- Modal de confirmación -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none">
+    <div class="modal">
+      <div class="modal__icono" id="modal-icono">✅</div>
+      <p id="modal-msg">Operación realizada con éxito.</p>
+      <button class="btn btn--primario" onclick="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
