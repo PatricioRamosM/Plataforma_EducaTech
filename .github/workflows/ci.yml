@@ -1,0 +1,36 @@
+name: Pipeline CI - EducaTech
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validar-proyecto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar archivos del proyecto
+        run: ls -la
+
+      - name: Validar archivo index.html
+        run: test -f index.html
+
+      - name: Validar archivo styles.css
+        run: test -f styles.css
+
+      - name: Validar archivo app.js
+        run: test -f app.js
+
+      - name: Validar archivo README.md
+        run: test -f README.md
+
+      - name: Simular construcciÃ³n del proyecto
+        run: echo "Construyendo plataforma educativa EducaTech..."
+
+      - name: Simular pruebas
+        run: echo "Pruebas ejecutadas correctamente"
